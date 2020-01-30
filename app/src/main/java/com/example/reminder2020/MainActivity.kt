@@ -1,10 +1,8 @@
 package com.example.reminder2020
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
-import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_main.*
 import org.jetbrains.anko.toast
 
@@ -43,6 +41,10 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent);
         }
 
+        val data = arrayOf("oulu", "Halsinki", "Tampate","oulu", "Halsinki", "Tampate","oulu", "Halsinki", "Tampate")
+
+        val reminderAdapter = ReminderAdapter(applicationContext, data)
+        list.adapter = reminderAdapter
 
     }
 }
