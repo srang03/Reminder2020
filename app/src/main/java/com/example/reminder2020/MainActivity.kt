@@ -71,5 +71,14 @@ class MainActivity : AppCompatActivity() {
 
             }
         }
+
+    }
+    companion object {
+//
+//        fun showNotification(context: Context, message: String){
+//            val CHANNEL_ID = "REMINDER_NOTIFICATION_CHANNEL"
+//            var notificationBuilder = NotificationCompat.Builder(context, CHANNEL_ID)
+//                .setSamll
+        }
     }
 }
