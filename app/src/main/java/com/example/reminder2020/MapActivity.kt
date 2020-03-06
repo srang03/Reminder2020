@@ -28,9 +28,8 @@ import java.util.*
 class MapActivity : AppCompatActivity(), OnMapReadyCallback {
     lateinit var gMap: GoogleMap
     lateinit var fusedLocationClient: FusedLocationProviderClient
-    lateinit var selectedLocation: LatLng
-
-    lateinit var  geofencingClient: GeofencingClient
+     var selectedLocation: LatLng?=null
+    lateinit var geofencingClient: GeofencingClient
 
     val GEOFENCE_ID = "REMINDER_GEOFENCE_ID"
     val GEOFENCE_RADIUS = 500
@@ -68,7 +67,7 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback {
             val reminder = Reminder(
                 uid = null,
                 time = null,
-                location = String.format("%.3f, %.3f", selectedLocation.latitude, selectedLocation.longitude),
+                location = String.format("%.3f, %.3f", selectedLocation?.latitude, selectedLocation?.longitude),
                 message = reminderText
             )
             doAsync {
@@ -78,7 +77,7 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback {
                 reminder.uid = uid
 
                 db.close()
-                CreateGeofence(selectedLocation, reminder, geofencingClient)
+                CreateGeofence(selectedLocation!!, reminder, geofencingClient)
 
             }
             finish()
